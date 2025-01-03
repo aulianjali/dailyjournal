@@ -2,9 +2,9 @@
                 <thead class="table-dark">
                     <tr>
                         <th>No</th>
-                        <th class="w-25">Judul</th>
-                        <th class="w-25">Gambar</th>
-                        <th class="w-25">Aksi</th>
+                        <th class="w-20">Judul</th>
+                        <th class="w-50">Gambar</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -12,7 +12,7 @@
                     include "koneksi.php";
 
                     $hlm = (isset($_POST['hlm'])) ? $_POST['hlm'] : 1;
-                    $limit = 3;
+                    $limit = 5;
                     $limit_start = ($hlm - 1) * $limit;
                     $no = $limit_start + 1;
 
@@ -25,21 +25,25 @@
                             <td><?= $no++ ?></td>
                             <td>
                                 <strong><?= $row["judul"] ?></strong>
+                                <br>pada : <?= $row["tanggal"] ?>
+                                <br>oleh : <?= $row["username"] ?>
                             </td>
-                            <!-- <td>
-                            <a href="<?= $row["link"] ?>" target="_blank"><?= $row["link"] ?></a>
-                            </td> -->
+                        
                             <td>
                                 <?php
                                 if ($row["gambar"] != '') {
                                     if (file_exists('img/' . $row["gambar"] . '')) {
                                 ?>
-                                        <img src="img/<?= $row["gambar"] ?>" width="100">
+                                        <img src="img/<?= $row["gambar"] ?>" 
+                                            class="img-fluid"
+                                            style="max-height: 300px; width: 100%; object-fit: contain;"
+                                        >
                                 <?php
                                     }
                                 }
                                 ?>
                             </td>
+                            
                             <td>
                                 <a href="#" title="edit" class="badge rounded-pill text-bg-success" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>"><i class="bi bi-pencil"></i></a>
                                 <a href="#" title="delete" class="badge rounded-pill text-bg-danger" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>"><i class="bi bi-x-circle"></i></a>
@@ -58,10 +62,6 @@
                                                         <label for="formGroupExampleInput" class="form-label">Judul</label>
                                                         <input type="hidden" name="id" value="<?= $row["id"] ?>">
                                                         <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Gallery" value="<?= $row["judul"] ?>" required>
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label for="formGroupExampleInput">Link</label>
-                                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Masukkan Link Youtube" name="link" value="<?= htmlspecialchars($row['link']); ?>" required>
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="formGroupExampleInput2" class="form-label">Ganti Gambar</label>

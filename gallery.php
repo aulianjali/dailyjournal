@@ -70,7 +70,6 @@ include "upload_foto.php";
 //jika tombol simpan diklik
 if (isset($_POST['simpan'])) {
     $judul = $_POST['judul'];
-    $link = $_POST['link'];
     $tanggal = date("Y-m-d H:i:s");
     $username = $_SESSION['username'];
     $gambar = '';
@@ -112,20 +111,19 @@ if (isset($_POST['simpan'])) {
         $stmt = $conn->prepare("UPDATE gallery
                                 SET 
                                 judul =?,
-                                link =?,
                                 gambar = ?,
                                 tanggal = ?,
                                 username = ?
                                 WHERE id = ?");
 
-        $stmt->bind_param("sssssi", $judul, $link, $gambar, $tanggal, $username, $id);
+        $stmt->bind_param("ssssi", $judul, $gambar, $tanggal, $username, $id);
         $simpan = $stmt->execute();
     } else {
 		    //jika tidak ada id, lakukan insert data baru
-        $stmt = $conn->prepare("INSERT INTO gallery (judul,link,gambar,tanggal,username)
+        $stmt = $conn->prepare("INSERT INTO gallery (judul,gambar,tanggal,username)
                                 VALUES (?,?,?,?,?)");
 
-        $stmt->bind_param("sssss", $judul, $link, $gambar, $tanggal, $username);
+        $stmt->bind_param("ssss", $judul, $gambar, $tanggal, $username);
         $simpan = $stmt->execute();
     }
 
