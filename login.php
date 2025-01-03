@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card shadow-lg">
           <div class="card-body p-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
-              <h2 class="card-title fw-bold m-0">Login</h2>
+              <h2 class="card-title fw-bold m-0">Welcome to My Daily Journal</h2>
             </div>
             
             <form method="post">
