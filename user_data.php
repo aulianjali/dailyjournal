@@ -30,7 +30,7 @@
                                 if ($row["foto"] != '') {
                                     if (file_exists('img/' . $row["foto"] . '')) {
                                 ?>
-                                        <img src="img/<?= $row["foto"] ?>" width="100">
+                                        <img src="img/<?= $row["foto"] ?>" style="height: 170px; width: 170px; object-fit: cover;" class="rounded-circle" class="rounded-circle">
                                 <?php
                                     }
                                 }
@@ -102,7 +102,7 @@
                                             <form method="post" action="">
                                                 <div class="modal-body">
                                                     <div class="mb-3">
-                                                        <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus user "<strong><?= $row["username"] ?></strong>"?</label>
+                                                        <label for="formGroupExampleInput" class="form-label">Apakah anda yakin ingin menghapus user "<strong><?= $row["username"] ?></strong>"?</label>
                                                         <input type="hidden" name="id" value="<?= $row["id"] ?>">
                                                     </div>
                                                 </div>

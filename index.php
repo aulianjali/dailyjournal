@@ -213,43 +213,52 @@ include "koneksi.php";
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">Gallery</h1>
         <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/lombok.jpg" class="d-block w-100 h-50" alt="Pantai Lombok"/>
-            </div>
-            <div class="carousel-item">
-              <img src="img/bromo.jpg" class="d-block w-100" alt="Sunrise Bromo" />
-            </div>
-            <div class="carousel-item">
-              <img src="img/pinus.jpg" class="d-block w-100" alt="Pinus Kalipasang" />
-            </div>
-            <div class="carousel-item">
-              <img src="img/citylight.jpg" class="d-block w-100" alt="Citylight Semarang" />
+        <div class="carousel-inner">
+        <?php
+        
+        $sql = "SELECT * FROM gallery ORDER BY tanggal ASC";
+        $hasil = $conn->query($sql);
+
+        $active = true;
+
+        while ($row = $hasil->fetch_assoc()) {
+        ?>
+          <div class="carousel-item <?= $active ? 'active' : '' ?>">
+            <img src="img/<?= $row['gambar'] ?>" class="d-block w-100" alt="<?= $row['judul'] ?>" />
+            <div class="carousel-caption d-none d-md-block">
+              <h5><?= htmlspecialchars($row['judul']) ?></h5>
+              <p> Uploaded by <?= htmlspecialchars($row['username']) ?> on <?= htmlspecialchars($row['tanggal']) ?></p>
             </div>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+        <?php
+          $active = false; // Setelah item pertama, set active ke false
+        }
+        ?>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
           </button>
         </div>
       </div>
     </section>
-   
+<!-- gallery end -->
 
+   
     <footer class="bg-info text-center">
       <div>
         <a href="https://www.instagram.com/aulianjali/profilecard/"><i class="bi bi-instagram h2 p-2 text-dark"></i></a>
