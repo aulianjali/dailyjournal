@@ -121,7 +121,7 @@ if (isset($_POST['simpan'])) {
     } else {
 		    //jika tidak ada id, lakukan insert data baru
         $stmt = $conn->prepare("INSERT INTO gallery (judul,gambar,tanggal,username)
-                                VALUES (?,?,?,?,?)");
+                                VALUES (?,?,?,?)");
 
         $stmt->bind_param("ssss", $judul, $gambar, $tanggal, $username);
         $simpan = $stmt->execute();
