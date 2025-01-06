@@ -224,7 +224,7 @@ include "koneksi.php";
         while ($row = $hasil->fetch_assoc()) {
         ?>
           <div class="carousel-item <?= $active ? 'active' : '' ?>">
-            <img src="img/<?= $row['gambar'] ?>" class="d-block w-100" alt="<?= $row['judul'] ?>" />
+            <img src="img/<?= $row['gambar'] ?>" class="d-block mx-auto w-50" alt="<?= $row['judul'] ?>" />
             <div class="carousel-caption d-none d-md-block">
               <h5><?= htmlspecialchars($row['judul']) ?></h5>
               <p> Uploaded by <?= htmlspecialchars($row['username']) ?> on <?= htmlspecialchars($row['tanggal']) ?></p>
