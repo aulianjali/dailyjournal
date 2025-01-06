@@ -61,7 +61,7 @@ include "koneksi.php";
     </div>
   </section>
 
-    <section id="profil"class="text-center p-5 bg-primary-subtle">
+    <section id="profil"class="text-center p-5">
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">Profil Mahasiswa</h1>
         <div class="d-lg-flex flex-md-row align-items-center justify-content-evenly">
@@ -100,7 +100,7 @@ include "koneksi.php";
      </section>
 
     <!-- article begin -->
-<section id="article" class="text-center p-5">
+<section id="article" class="text-center p-5 bg-danger-subtle">
   <div class="container">
     <h1 class="fw-bold display-4 pb-3">Article</h1>
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
@@ -134,7 +134,7 @@ include "koneksi.php";
 </section>
 <!-- article end -->
 
-    <section id="jadwal" class="text-center-p-5 "> 
+    <section id="jadwal" class="text-center-p-5"> 
       <div class="container"> 
         <h1 class="fw-bold display-4 pt-5 pb-4 text-center"> Jadwal Kuliah dan Kegiatan </h1>
       </div>
@@ -209,7 +209,7 @@ include "koneksi.php";
       </div>
     </section>
 
-    <section id="gallery" class="text-center p-5 bg-info-subtle">
+    <section id="gallery" class="text-center bg-danger-subtle">
       <div class="container">
         <h1 class="fw-bold display-4 pb-3">Gallery</h1>
         <div id="carouselExample" class="carousel slide">
@@ -259,13 +259,13 @@ include "koneksi.php";
 <!-- gallery end -->
 
    
-    <footer class="bg-info text-center">
-      <div>
-        <a href="https://www.instagram.com/aulianjali/profilecard/"><i class="bi bi-instagram h2 p-2 text-dark"></i></a>
-        <a href="https://wa.me/6281385532793"><i class="bi bi-whatsapp h2 p-2 text-dark"></i></a>
-        <a href="https://mail.google.com/mail/?authuser=0"><i class="bi bi-envelope h2 p-2 text-dark"></i></a>
-      </div>
-      <div>Aulia Anjali © 2024</div>
+    <footer class="bg-danger text-center">
+        <div>
+            <a href="https://www.instagram.com/aulianjali/profilecard/"><i class="bi bi-instagram h2 p-2 text-white"></i></a>
+            <a href="https://wa.me/6281385532793"><i class="bi bi-whatsapp h2 p-2 text-white"></i></a>
+            <a href="https://mail.google.com/mail/?authuser=0"><i class="bi bi-envelope h2 p-2 text-white"></i></a>
+        </div>
+        <div class="text-white">Aulia Anjali © 2024</div>
     </footer>
 
    
